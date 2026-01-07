@@ -1,0 +1,23 @@
+# ==========================
+# Python cache (safe to ignore)
+# ==========================
+__pycache__/
+*.pyc
+
+# ==========================
+# Virtual environments (if any)
+# ==========================
+venv/
+.env/
+
+# ==========================
+# IDE / Editor settings
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# OS-generated files
+# ==========================
+.DS_Store
+Thumbs.db
