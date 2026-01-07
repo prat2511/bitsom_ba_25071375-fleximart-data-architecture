@@ -1,0 +1,35 @@
+DATA QUALITY REPORT - FlexiMart ETL
+Run timestamp: 2026-01-07 23:33:04
+
+Records read:
+  customers_raw.csv: 26
+  products_raw.csv:  20
+  sales_raw.csv:     41
+
+Customers cleaning:
+  Duplicate rows removed: 1
+  Missing emails handled: 5 -> filled with placeholders (@unknown.email)
+
+Products cleaning:
+  Duplicate rows removed: 0
+  Missing prices handled: 3 -> filled using category median (fallback overall median)
+  Missing stock handled:  1 -> filled with 0
+
+Sales cleaning:
+  Duplicate rows removed: 1
+  Rows dropped (missing customer_id/product_id): 5
+  Rows dropped (unparsed dates): 0
+
+Load results:
+  customers loaded:   25
+  products loaded:    20
+  orders loaded:      35
+  order_items loaded: 35
+
+Notes:
+  - Sales rows with missing customer_id/product_id were dropped to satisfy FK constraints.
+  - Sales rows with unparseable dates were dropped because orders.order_date is NOT NULL.
+  - Missing customer emails were generated as placeholders to satisfy NOT NULL + UNIQUE constraint.
+  - Missing prices filled using category median (fallback overall median).
+  - Unmapped customers dropped during order load (safety): 0
+  - Unmapped products dropped during item load (safety): 0

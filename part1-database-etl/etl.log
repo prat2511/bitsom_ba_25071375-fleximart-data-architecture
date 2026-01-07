@@ -1,0 +1,75 @@
+2026-01-06 23:20:10,668 | INFO | ETL started.
+2026-01-06 23:20:10,669 | INFO | All input CSV files found.
+2026-01-06 23:20:10,959 | INFO | Database connection successful.
+2026-01-06 23:20:10,966 | INFO | Read customers: 26 rows
+2026-01-06 23:20:10,966 | INFO | Read products : 20 rows
+2026-01-06 23:20:10,967 | INFO | Read sales    : 41 rows
+2026-01-06 23:20:10,978 | INFO | Customers duplicates removed: 1
+2026-01-06 23:20:10,979 | INFO | Customers missing emails filled: 5
+2026-01-06 23:20:10,980 | INFO | Customers rows after cleaning: 25
+2026-01-06 23:20:10,987 | INFO | Products duplicates removed: 0
+2026-01-06 23:20:10,987 | INFO | Products missing prices filled: 3
+2026-01-06 23:20:10,988 | INFO | Products missing stock filled: 1
+2026-01-06 23:20:10,988 | INFO | Products rows after cleaning: 20
+2026-01-06 23:20:10,995 | INFO | Sales duplicates removed: 1
+2026-01-06 23:20:10,996 | INFO | Sales rows dropped (missing IDs): 5
+2026-01-06 23:20:10,998 | INFO | Sales rows after cleaning: 35
+2026-01-06 23:20:10,998 | INFO | Starting database load transaction...
+2026-01-06 23:20:11,189 | ERROR | UNEXPECTED ERROR: 'customer_id'
+2026-01-06 23:29:11,565 | INFO | ETL started
+2026-01-06 23:29:11,740 | ERROR | ETL failed: (psycopg2.errors.NotNullViolation) null value in column "order_date" of relation "orders" violates not-null constraint
+DETAIL:  Failing row contains (5, 6, null, 12999.00, Completed).
+
+[SQL: INSERT INTO orders (customer_id, order_date, total_amount, status) VALUES (%(customer_id__0)s, %(order_date__0)s, %(total_amount__0)s, %(status__0)s), (%(customer_id__1)s, %(order_date__1)s, %(total_amount__1)s, %(status__1)s), (%(customer_id__2)s, % ... 2517 characters truncated ... )s, %(status__33)s), (%(customer_id__34)s, %(order_date__34)s, %(total_amount__34)s, %(status__34)s)]
+[parameters: {'status__0': 'Completed', 'customer_id__0': 1, 'total_amount__0': 45999.0, 'order_date__0': datetime.date(2024, 1, 15), 'status__1': 'Completed', 'customer_id__1': 2, 'total_amount__1': 5998.0, 'order_date__1': datetime.date(2024, 1, 16), 'status__2': 'Completed', 'customer_id__2': 3, 'total_amount__2': 52999.0, 'order_date__2': datetime.date(2024, 1, 15), 'status__3': 'Completed', 'customer_id__3': 5, 'total_amount__3': 1950.0, 'order_date__3': datetime.date(2024, 1, 20), 'status__4': 'Completed', 'customer_id__4': 6, 'total_amount__4': 12999.0, 'order_date__4': None, 'status__5': 'Completed', 'customer_id__5': 7, 'total_amount__5': 3998.0, 'order_date__5': datetime.date(2024, 1, 23), 'status__6': 'Cancelled', 'customer_id__6': 9, 'total_amount__6': 4599.0, 'order_date__6': datetime.date(2024, 1, 28), 'status__7': 'Completed', 'customer_id__7': 10, 'total_amount__7': 4495.0, 'order_date__7': datetime.date(2024, 2, 1), 'status__8': 'Completed', 'customer_id__8': 11, 'total_amount__8': 69999.0, 'order_date__8': datetime.date(2024, 2, 2), 'status__9': 'Completed', 'customer_id__9': 12, 'total_amount__9': 52999.0, 'order_date__9': datetime.date(2024, 2, 5), 'status__10': 'Completed', 'customer_id__10': 13, 'total_amount__10': 1350.0, 'order_date__10': datetime.date(2024, 2, 8), 'status__11': 'Completed', 'customer_id__11': 14, 'total_amount__11': 2998.0, 'order_date__11': None, 'status__12': 'Completed', 'customer_id__12': 15 ... 40 parameters truncated ... 'total_amount__22': 6998.0, 'order_date__22': datetime.date(2024, 12, 3), 'status__23': 'Completed', 'customer_id__23': 8, 'total_amount__23': 1800.0, 'order_date__23': datetime.date(2024, 3, 15), 'status__24': 'Completed', 'customer_id__24': 9, 'total_amount__24': 52999.0, 'order_date__24': datetime.date(2024, 3, 18), 'status__25': 'Completed', 'customer_id__25': 11, 'total_amount__25': 12999.0, 'order_date__25': None, 'status__26': 'Completed', 'customer_id__26': 12, 'total_amount__26': 32999.0, 'order_date__26': datetime.date(2024, 3, 25), 'status__27': 'Completed', 'customer_id__27': 13, 'total_amount__27': 3998.0, 'order_date__27': datetime.date(2024, 3, 28), 'status__28': 'Completed', 'customer_id__28': 14, 'total_amount__28': 2598.0, 'order_date__28': datetime.date(2024, 3, 30), 'status__29': 'Completed', 'customer_id__29': 15, 'total_amount__29': 960.0, 'order_date__29': datetime.date(2024, 1, 4), 'status__30': 'Completed', 'customer_id__30': 16, 'total_amount__30': 69999.0, 'order_date__30': datetime.date(2024, 4, 3), 'status__31': 'Completed', 'customer_id__31': 17, 'total_amount__31': 3596.0, 'order_date__31': datetime.date(2024, 4, 5), 'status__32': 'Completed', 'customer_id__32': 18, 'total_amount__32': 1899.0, 'order_date__32': None, 'status__33': 'Completed', 'customer_id__33': 19, 'total_amount__33': 2998.0, 'order_date__33': datetime.date(2024, 4, 10), 'status__34': 'Completed', 'customer_id__34': 20, 'total_amount__34': 5499.0, 'order_date__34': datetime.date(2024, 4, 12)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-01-06 23:47:45,291 | INFO | ETL started.
+2026-01-06 23:47:45,292 | INFO | All input CSV files found.
+2026-01-06 23:47:45,297 | INFO | Read customers: 26 rows
+2026-01-06 23:47:45,297 | INFO | Read products : 20 rows
+2026-01-06 23:47:45,297 | INFO | Read sales    : 41 rows
+2026-01-06 23:47:45,302 | ERROR | UNEXPECTED ERROR: Unalignable boolean Series provided as indexer (index of the boolean Series and of the indexed object do not match).
+2026-01-06 23:53:34,092 | INFO | ETL started.
+2026-01-06 23:53:34,093 | INFO | All input CSV files found.
+2026-01-06 23:53:34,099 | INFO | Read customers: 26 rows
+2026-01-06 23:53:34,100 | INFO | Read products : 20 rows
+2026-01-06 23:53:34,100 | INFO | Read sales    : 41 rows
+2026-01-06 23:53:34,111 | INFO | Customers duplicates removed: 1
+2026-01-06 23:53:34,111 | INFO | Customers missing emails filled: 5
+2026-01-06 23:53:34,112 | INFO | Customers rows after cleaning: 25
+2026-01-06 23:53:34,116 | INFO | Products duplicates removed: 0
+2026-01-06 23:53:34,116 | INFO | Products missing prices filled: 3
+2026-01-06 23:53:34,118 | INFO | Products missing stock filled: 1
+2026-01-06 23:53:34,124 | INFO | Products rows after cleaning: 20
+2026-01-06 23:53:34,134 | INFO | Sales duplicates removed: 1
+2026-01-06 23:53:34,134 | INFO | Sales rows dropped (missing IDs): 5
+2026-01-06 23:53:34,135 | INFO | Sales rows dropped (bad dates): 0
+2026-01-06 23:53:34,141 | INFO | Sales rows after cleaning: 35
+2026-01-06 23:53:34,251 | INFO | Database connection successful.
+2026-01-06 23:53:34,251 | INFO | Starting database load transaction...
+2026-01-06 23:53:34,351 | INFO | Database load committed successfully.
+2026-01-06 23:53:34,369 | INFO | ETL complete.
+2026-01-06 23:53:34,369 | INFO | Report written to: C:\fleximart_assignment\data_quality_report.txt
+2026-01-06 23:53:34,370 | INFO | Log written to: C:\fleximart_assignment\etl.log
+2026-01-07 23:33:04,856 | INFO | ETL started.
+2026-01-07 23:33:04,857 | INFO | All input CSV files found.
+2026-01-07 23:33:04,864 | INFO | Read customers: 26 rows
+2026-01-07 23:33:04,865 | INFO | Read products : 20 rows
+2026-01-07 23:33:04,866 | INFO | Read sales    : 41 rows
+2026-01-07 23:33:04,880 | INFO | Customers duplicates removed: 1
+2026-01-07 23:33:04,880 | INFO | Customers missing emails filled: 5
+2026-01-07 23:33:04,883 | INFO | Customers rows after cleaning: 25
+2026-01-07 23:33:04,892 | INFO | Products duplicates removed: 0
+2026-01-07 23:33:04,892 | INFO | Products missing prices filled: 3
+2026-01-07 23:33:04,899 | INFO | Products missing stock filled: 1
+2026-01-07 23:33:04,899 | INFO | Products rows after cleaning: 20
+2026-01-07 23:33:04,912 | INFO | Sales duplicates removed: 1
+2026-01-07 23:33:04,913 | INFO | Sales rows dropped (missing IDs): 5
+2026-01-07 23:33:04,915 | INFO | Sales rows dropped (bad dates): 0
+2026-01-07 23:33:04,916 | INFO | Sales rows after cleaning: 35
+2026-01-07 23:33:05,280 | INFO | Database connection successful.
+2026-01-07 23:33:05,280 | INFO | Starting database load transaction...
+2026-01-07 23:33:05,494 | INFO | Database load committed successfully.
+2026-01-07 23:33:05,514 | INFO | ETL complete.
+2026-01-07 23:33:05,514 | INFO | Report written to: C:\fleximart_assignment\part1-database-etl\data_quality_report.txt
+2026-01-07 23:33:05,515 | INFO | Log written to: C:\fleximart_assignment\part1-database-etl\etl.log
